@@ -167,6 +167,12 @@
                 "gentle": "Calme"
             }
         },
+        "cleaning_mode": {
+            "label": "Mode de nettoyage"
+        },
+        "mop_wash_level": {
+            "label": "Intensite de nettoyage"
+        },
         "sensor_dirty_left": {
             "label": "Capteurs"
         },
@@ -185,10 +191,36 @@
         "cleaned_area": {
             "label": "Surface nettoyée"
         },
+        "total_cleaned_area": {
+            "label": "Surface nettoyée totale"
+        },
         "cleaning_time": {
             "label": "Durée de nettoyage"
         },
+        "total_cleaning_time": {
+            "label": "Durée totale de nettoyage"
+        },
         "mop_left": {
+            "label": "Serpillère"
+        },
+        "bin_full": {
+            "label": "Bac plein",
+            "value": {
+                "true": "Oui",
+                "false": "Non"
+            }
+        },
+        "bin_present": {
+            "label": "Bac présent",
+            "value": {
+                "true": "Oui",
+                "false": "Non"
+            }
+        },
+        "water_volume": {
+            "label": "Volume d'eau"
+        },
+        "mop_pad_humidity": {
             "label": "Serpillère"
         }
     },
