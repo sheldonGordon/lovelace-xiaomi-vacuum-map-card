@@ -171,7 +171,7 @@
             "label": "Mode de nettoyage"
         },
         "mop_wash_level": {
-            "label": "Intensite de nettoyage"
+            "label": "Intensité de nettoyage"
         },
         "sensor_dirty_left": {
             "label": "Capteurs"
@@ -201,7 +201,7 @@
             "label": "Durée totale de nettoyage"
         },
         "mop_left": {
-            "label": "Serpillère"
+            "label": "Serpillière"
         },
         "bin_full": {
             "label": "Bac plein",
@@ -221,7 +221,7 @@
             "label": "Volume d'eau"
         },
         "mop_pad_humidity": {
-            "label": "Serpillère"
+            "label": "Serpillière"
         }
     },
     "icon": {
