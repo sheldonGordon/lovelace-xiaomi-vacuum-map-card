@@ -15,7 +15,10 @@
         "vacuum_clean_point_predefined": "Σημεία",
         "vacuum_clean_zone": "Σκούπισμα σε ζώνη",
         "vacuum_clean_zone_predefined": "Λίστα ζωνών καθαρισμού",
-        "vacuum_follow_path": "Διαδρομή"
+        "vacuum_follow_path": "Διαδρομή",
+        "setup_zone": "Συντεταγμένες ζώνης",
+        "setup_point": "Συντεταγμένες σημείου",
+        "setup_outline": "Συντεταγμένες περιμέτρου"
     },
     "validation": {
         "preset": {
@@ -127,69 +130,17 @@
         "invalid_calibration": "Λάθος βαθμονόμηση, παρακαλώ ελέγξτε τις ρυθμίσεις σας"
     },
     "tile": {
-        "status": {
-            "label": "Κατάσταση",
+        "auto_empty_mode": {
+            "label": "Αυτόματο άδειασμα",
             "value": {
-                "starting": "Γίνεται εκκίνηση",
-                "charger disconnected": "Αποσυνδέθηκε από τη φόρτιση",
-                "idle": "Σε αδράνεια",
-                "remote control active": "Χειροκίνητος έλεγχος ενεργός",
-                "cleaning": "Γίνεται καθαρισμός",
-                "returning home": "Επιστροφή στη βάση",
-                "manual mode": "Χειροκίνητη λειτουργία",
-                "charging": "Σε φόρτιση",
-                "charging problem": "Πρόβλημα φόρτισης",
-                "paused": "Σε παύση",
-                "spot cleaning": "Καθαρισμός σημείου",
-                "error": "Σφάλμα",
-                "shutting down": "Γίνεται τερματισμός",
-                "updating": "Γίνεται αναβάθμιση",
-                "docking": "Σύνδεση στη βάση",
-                "going to target": "Πορεία προς προορισμό",
-                "zoned cleaning": "Καθαρισμός ζώνης",
-                "segment cleaning": "Καθαρισμός τμήματος",
-                "emptying the bin": "Άδειασμα κάδου",
-                "charging complete": "Φόρτιση πλήρης",
-                "device offline": "Συσκευή εκτός δικτύου"
+              "off": "Ανενεργό",
+              "standard": "Κανονικό",
+              "high_frequency": "Υψηλή συχνότητα",
+              "low_frequency": "Χαμηλή συχνότητα"
             }
         },
         "battery_level": {
             "label": "Μπαταρία"
-        },
-        "fan_speed": {
-            "label": "Ταχύτητα ανεμιστήρα",
-            "value": {
-                "silent": "Αθόρυβο",
-                "standard": "Τυπικό",
-                "medium": "Μέτριο",
-                "turbo": "Τούρμπο",
-                "auto": "Αυτόματο",
-                "gentle": "Ήπιο"
-            }
-        },
-        "sensor_dirty_left": {
-            "label": "Συντήρηση αισθητήρων"
-        },
-        "filter_left": {
-            "label": "Συντήρηση φίλτρου"
-        },
-        "main_brush_left": {
-            "label": "Συντήρηση κύριας βούρτσας"
-        },
-        "side_brush_left": {
-            "label": "Συντήρηση πλαϊνής βούρτσας"
-        },
-        "cleaning_count": {
-            "label": "Αριθμός σκουπισμάτων"
-        },
-        "cleaned_area": {
-            "label": "Έκταση που καθαρίστηκε"
-        },
-        "cleaning_time": {
-            "label": "Χρόνος καθαρισμού"
-        },
-        "mop_left": {
-            "label": "Συντήρηση σφουγγαρίστρας"
         },
         "bin_full": {
             "label": "Κάδος γεμάτος",
@@ -204,6 +155,116 @@
                 "true": "Ναι",
                 "false": "Όχι"
             }
+        },
+        "cleaned_area": {
+            "label": "Έκταση που καθαρίστηκε"
+        },
+        "cleangenius": {
+            "label": "Clean Genius",
+            "value": {
+              "off": "Ανενεργό",
+              "routine_cleaning": "Καθαρισμός ρουτίνας",
+              "deep_cleaning": "Βαθύς καθαρισμός"
+            }
+        },
+        "cleaning_count": {
+            "label": "Αριθμός σκουπισμάτων"
+        },
+        "cleaning_mode": {
+            "label": "Τύπος καθαρισμού",
+            "value": {
+              "sweeping": "Σκούπισμα",
+              "mopping": "Σφουγγάρισμα",
+              "sweeping_and_mopping": "Σκούπισμα και σφουγγάρισμα",
+              "mopping_after_sweeping": "Σφουγγάρισμα μετά το σκούπισμα"
+            }
+        },
+        "cleaning_route": {
+            "label": "Διαδρομή καθαρισμού",
+            "value": {
+              "quick": "Γρήγορη",
+              "standard": "Κανονική"
+            }
+        },
+        "cleaning_time": {
+            "label": "Χρόνος καθαρισμού"
+        },
+        "fan_speed": {
+            "label": "Ταχύτητα ανεμιστήρα",
+            "value": {
+                "silent": "Αθόρυβο",
+                "standard": "Τυπικό",
+                "medium": "Μέτριο",
+                "turbo": "Τούρμπο",
+                "auto": "Αυτόματο",
+                "gentle": "Ήπιο",
+                "strong": "Ισχυρό"
+            }
+        },
+        "filter_left": {
+            "label": "Συντήρηση φίλτρου"
+        },
+        "sensor_dirty_left": {
+            "label": "Συντήρηση αισθητήρων"
+        },
+        "side_brush_left": {
+            "label": "Συντήρηση πλαϊνής βούρτσας"
+        },
+        "status": {
+            "label": "Κατάσταση",
+            "value": {
+                "starting": "Γίνεται εκκίνηση",
+                "charger_disconnected": "Αποσυνδέθηκε από τη φόρτιση",
+                "idle": "Σε αδράνεια",
+                "remote_control_active": "Χειροκίνητος έλεγχος ενεργός",
+                "cleaning": "Γίνεται καθαρισμός",
+                "returning_home": "Επιστροφή στη βάση",
+                "manual_mode": "Χειροκίνητη λειτουργία",
+                "charging": "Σε φόρτιση",
+                "charging_problem": "Πρόβλημα φόρτισης",
+                "paused": "Σε παύση",
+                "spot_cleaning": "Καθαρισμός σημείου",
+                "error": "Σφάλμα",
+                "sleeping": "Σε αδράνεια",
+                "shutting_down": "Γίνεται τερματισμός",
+                "updating": "Γίνεται αναβάθμιση",
+                "docking": "Σύνδεση στη βάση",
+                "going_to_target": "Πορεία προς προορισμό",
+                "zoned_cleaning": "Καθαρισμός ζώνης",
+                "segment_cleaning": "Καθαρισμός τμήματος",
+                "emptying_the_bin": "Άδειασμα κάδου",
+                "charging_complete": "Φόρτιση πλήρης",
+                "device_offline": "Συσκευή εκτός δικτύου"
+            }
+        },
+        "main_brush_left": {
+            "label": "Συντήρηση κύριας βούρτσας"
+        },
+        "mop_left": {
+            "label": "Συντήρηση σφουγγαρίστρας"
+        },
+        "mop_pad_humidity": {
+            "label": "Υγρασία σφουγγαρίστρας",
+            "value":{
+                "slightly_dry": "Ήπια",
+                "moist": "Μεσαία",
+                "wet": "Υγρή"
+            }
+        },
+        "tight_mopping": {
+            "label": "Πυκνό σφουγγάρισμα"
+        },
+        "total_cleaning_time": {
+            "label": "Συνολικός χρόνος καθαρισμού"
+        },
+        "total_cleaned_area": {
+            "label": "Συνολική έκταση που καθαρίστηκε"
+        },
+        "water_volume": {
+            "label": "Ποσότητα νερού"
+        },
+        "wetness_level": {
+            "label": "Επίπεδο υγρασίας"
         }
     },
     "icon": {
@@ -246,6 +307,9 @@
             "config_set_failed": "Απέτυχε η ενημέρωση των ρυθμίσεων.",
             "generate_rooms_config": "Δημιουργία παραμέτρων δωματίων",
             "copy_service_call": "Αντιγραφή κλήσης υπηρεσίας"
+        },
+        "alerts": {
+            "set_static_config": "Θα πρέπει να χρησιμοποιήσεις αυτή τη λειτουργία μόνο αν θέλεις να προσαρμόσεις χειροκίνητα μια αυτόματα δημιουργημένη ρύθμιση.\nΣυνέχεια;"
         }
     }
 }
