@@ -41,3 +41,7 @@ export interface EntityRegistryDisplayEntry {
     platform?: string;
     display_precision?: number;
 }
+
+export interface HaDropdown extends HTMLElement {
+    hideMenu(): void;
+}

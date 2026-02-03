@@ -2,6 +2,7 @@ import { css, CSSResultGroup, html, TemplateResult } from "lit";
 import { conditional } from "../utils";
 import { customElement, property, query } from "lit/decorators";
 import { RootlessLitElement } from "./rootless-lit-element";
+import { HaDropdown } from "../types/fixes";
 
 interface DropdownEntry {
     icon: string;
@@ -27,14 +28,12 @@ export class DropdownMenu<T extends DropdownEntry> extends RootlessLitElement {
     private additionalClasses: string[] = [];
 
     @query(".dropdown-menu")
-    private menu: HTMLElement | undefined;
+    private menu: HaDropdown | undefined;
 
     public render(): TemplateResult {
         const currentValue = this.values[this.currentIndex];
         return html`
-            <ha-button-menu class="dropdown-menu ${this.additionalClasses.join(" ")}" fixed="true" activatable
-                            @closed="${(e: Event) => e.stopPropagation()}"
-                            @click="${() => this.updateStyles(this.values.length)}">
+            <ha-dropdown distance="-50" class="dropdown-menu ${this.additionalClasses.join(" ")}" fixed="true" activatable>
                 <div class="dropdown-menu-button clickable" slot="trigger" alt="bottom align">
                     <paper-button class="dropdown-menu-button-button">
                         <ha-icon icon="${currentValue.icon}" class="dropdown-icon"></ha-icon>
@@ -47,9 +46,9 @@ export class DropdownMenu<T extends DropdownEntry> extends RootlessLitElement {
                 </div>
                 ${this.values.map(
                     (mode, index) => html`
-                        <mwc-list-item class="dropdown-list-item"
+                        <div class="dropdown-list-item"
                                        ?activated="${this.currentIndex === index}"
-                                       @click="${(): void => this.setValue(index)}">
+                                       @click="${(): void => this.internalClick(index)}">
                             <div
                                 class="dropdown-menu-entry clickable ${this.currentIndex === index ? "selected" : ""}">
                                 <div
@@ -65,49 +64,31 @@ export class DropdownMenu<T extends DropdownEntry> extends RootlessLitElement {
                                 </div>
                                 <div class="dropdown-menu-entry-text">${mode.name}</div>
                             </div>
-                        </mwc-list-item>`,
+                        </div>`,
                 )}
-            </ha-button-menu>
+            </ha-dropdown>
         `;
     }
 
-    private updateStyles(items: number): void {
-        const div = this.menu?.shadowRoot?.querySelector("div") as HTMLElement;
-        if (this.menu && div) {
-            const height = 50;
-            const minDiff = (items - 1) * height + 32;
-            if (window.innerHeight - div.getBoundingClientRect().bottom >= minDiff) {
-                div.style.marginTop = `0px`;
-                this.menu.style.marginTop = `0px`;
-                div.style.marginBottom = `-${height}px`;
-                this.menu.style.marginBottom = `${height}px`;
-            } else {
-                div.style.marginTop = `-${height}px`;
-                this.menu.style.marginTop = `${height}px`;
-                div.style.marginBottom = "0px";
-                this.menu.style.marginBottom = "0px";
-            }
-            const mwcMenu = this.menu.shadowRoot?.querySelector("mwc-menu") as HTMLElement;
-            if (mwcMenu) {
-                mwcMenu.style.zIndex = "1";
-                mwcMenu.style.position = "fixed";
-            }
-            this.menu.querySelectorAll("mwc-list-item").forEach((item) => {
-                // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
-                item.shadowRoot!.querySelector("span")!.style.flexGrow = "1";
-            });
-        }
+    private internalClick(value: number): void {
+        this.menu?.hideMenu();
+        this.setValue(value);
     }
 
     public static get styles(): CSSResultGroup {
         return css`
           .dropdown-menu {
-            --mdc-menu-item-height: 50px;
-            --mdc-theme-primary: transparent;
-            --mdc-list-vertical-padding: 0px;
-            --mdc-list-side-padding: 0px;
-            --mdc-shape-medium: var(--map-card-internal-big-radius);
-            --mdc-ripple-color: transparent;
+              --ha-space-1: 0;
+              --wa-border-style: none;
+              --wa-border-radius-s: 25px;
+              --wa-border-radius-m: 25px;
+              --wa-border-radius-l: 25px;
+              --mdc-menu-item-height: 50px;
+              --mdc-theme-primary: transparent;
+              --mdc-list-vertical-padding: 0px;
+              --mdc-list-side-padding: 0px;
+              --mdc-shape-medium: var(--map-card-internal-big-radius);
+              --mdc-ripple-color: transparent;
           }
 
           .dropdown-menu-button {
@@ -186,11 +167,6 @@ export class DropdownMenu<T extends DropdownEntry> extends RootlessLitElement {
             background-color: transparent;
             padding-left: 10px;
             padding-right: 15px;
-          }
-
-          .dropdown-menu-listbox {
-            padding: 0;
-            background-color: transparent;
           }
         `;
     }
