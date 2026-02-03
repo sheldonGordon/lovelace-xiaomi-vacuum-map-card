@@ -300,7 +300,7 @@ export class XiaomiVacuumMapCard extends LitElement {
                         height="100%"
                         @mousedown="${(e: MouseEvent): void => this._mouseDown(e)}"
                         @mousemove="${(e: MouseEvent): void => this._mouseMove(e)}"
-                        @mouseup="${(e: PointerEvent): void => this._mouseUp(e)}">
+                        @mouseup="${async (e: PointerEvent): Promise<void> => {await this._mouseUp(e)}}">
                         ${validCalibration ? this._drawSelection() : null}
                     </svg>
                 </div>
@@ -1155,7 +1155,7 @@ export class XiaomiVacuumMapCard extends LitElement {
         this.shouldHandleMouseUp = false;
     }
 
-    private _mouseUp(event: PointerEvent | MouseEvent | TouchEvent): void {
+    private async _mouseUp(event: PointerEvent | MouseEvent | TouchEvent): Promise<void> {
         const currentMode = this._getCurrentMode();
         if (!(event instanceof MouseEvent && event.button != 0) && this.shouldHandleMouseUp && currentMode) {
             const { x, y } = getMousePosition(event, this._getSvgWrapper(), 1);
@@ -1169,6 +1169,9 @@ export class XiaomiVacuumMapCard extends LitElement {
                     forwardHaptic("selection");
                     this.selectedManualPoint = new ManualPoint(x, y, this._getContext());
                     this._selectionChanged();
+                    if(this._getCurrentMode()?.runImmediately ?? false){
+                        await this._runImmediately();
+                    }
                     break;
                 default:
                     return;
