@@ -73,7 +73,7 @@ export class ToastRenderer {
                 padding-right: 10px;
                 -moz-box-sizing: border-box;
                 -webkit-box-sizing: border-box;
-                background-color: var(--paper-listbox-background-color);
+                background-color: var(--ha-card-background, var(--card-background-color, #fff));
                 color: var(--primary-text-color);
                 vertical-align: middle;
                 overflow: hidden;
