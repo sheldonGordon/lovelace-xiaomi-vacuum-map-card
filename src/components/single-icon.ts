@@ -25,7 +25,7 @@ export class SingleIcon extends RootlessLitElement {
         return html`
             <paper-button
                 class="single-icon clickable ripple"
-                .title=${this.isInEditor ? `tile_id: ${this.config.icon_id}` : this.config.tooltip ?? ""}
+                .title=${this.isInEditor ? `icon_id: ${this.config.icon_id}` : this.config.tooltip ?? ""}
                 @action=${this.onAction(this.config)}
                 .actionHandler=${actionHandler({
                     hasHold: hasAction(this.config?.hold_action),

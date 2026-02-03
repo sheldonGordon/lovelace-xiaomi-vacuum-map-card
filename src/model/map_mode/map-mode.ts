@@ -17,6 +17,7 @@ import { HomeAssistantFixed } from "../../types/fixes";
 
 export class MapMode {
     private static readonly PREDEFINED_SELECTION_TYPES = [
+        SelectionType.MANUAL_POINT,
         SelectionType.PREDEFINED_RECTANGLE,
         SelectionType.ROOM,
         SelectionType.PREDEFINED_POINT,

@@ -167,6 +167,12 @@
                 "gentle": "Calme"
             }
         },
+        "cleaning_mode": {
+            "label": "Mode de nettoyage"
+        },
+        "mop_wash_level": {
+            "label": "Intensité de nettoyage"
+        },
         "sensor_dirty_left": {
             "label": "Capteurs"
         },
@@ -186,10 +192,13 @@
             "label": "Surface nettoyée"
         },
         "total_cleaned_area": {
-          "label": "Surface total nettoyée"
+            "label": "Surface nettoyée totale"
         },
         "cleaning_time": {
             "label": "Durée de nettoyage"
+        },
+        "total_cleaning_time": {
+            "label": "Durée totale de nettoyage"
         },
         "mop_left": {
             "label": "Serpillère"
